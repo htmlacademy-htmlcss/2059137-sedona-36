@@ -5,8 +5,91 @@
     <title>HTML Academy: Седона</title>
   </head>
   <body>
+    <header>
+      <h1 class="visually-hidden">Добро пожаловать в Седону</h1>
+      <nav>
+        <a href="эта страница"><img src="logo"></a>
+        <a href="#">Главная</a>
+        <a href="ссылка на вторую секцию">О Седоне</a>
+        <a href="ссылка на гостиницу">Гостиницы</a>
+      </nav>
+      <form action="адрес сервера" method="get">
+        <input type="search" placeholder="Поиск" class="visually-hidden"><img src="картинка с лупой" alt="Поиск">
+      </form>
+      <img src="#" alt="Избранное">
+      <button type="submit">Хочу сюда!</button> <!--куда должна вести эта кнопка? на каталог гостиниц? вниз страницы?-->
+    </header>
 
-    <p>Репозиторий создан для обучения на профессиональном онлайн‑курсе «<a href="https://htmlacademy.ru/intensive/htmlcss">HTML и CSS. Профессиональная вёрстка сайтов</a>».</p>
+    <main>
+      <section class="welcome-to-sedona">
+        <p class="pseudo-header">Седона - небольшой городок в Аризоне, заслуживающий большего!</p>
+        <p class="main-text">Рассмотрим причины, по которым Седона круче, чем Гранд-Каньон!</p>
+      </section>
 
+      <section class="benefits-of-sedona">
+        <table>
+          <tr>
+            <td>
+              <p class="mini-pseudo-header">Настоящий городок</p>
+              <p class="mini-main-text">Седона - не аттракцион для туристов, там течет своя жизнь</p>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+          <tr>
+            <td>
+              <p class="mini-pseudo-header">Небольшая площадь</p>
+              <p class="mini-main-text">Все достопримечательности находятся очень близко</p>
+            </td>
+            <td>
+              <p class="mini-pseudo-header">Красивая дорога</p>
+              <p class="mini-main-text">Ехать в Седону из Лас-Вегаса совсем не скучно!</p>
+            </td>
+            <td>
+              <p class="mini-pseudo-header">Мало туристов</p>
+              <p class="mini-main-text">Большинство едет в Гранд-Каньон и толпится там</p>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2"></td>
+            <td>
+              <p class="mini-pseudo-header">Там есть мост дьявола</p>
+              <p class="mini-main-text">Да, по нему можно пройти! Если вы осмелитесь, разумеется</p>
+            </td>
+          </tr>
+        </table>
+      </section>
+
+      <section class="invitation-to-sedona">
+        <p class="pseudo-header">Приезжайте в Седону отдохнуть в комфорте и уюте!</p>
+        <p class="main-text">Опытный персонал и качественное обслуживание!</p>
+        <dl>
+          <dt class="mini-pseudo-header">Жильё</dt>
+          <dd class="mini-main-text">Рекомендуем пожить в настоящем мотеле, всё как в кино!</dd>
+          <dt class="mini-pseudo-header">Еда</dt>
+          <dd class="mini-main-text">Всегда заказывайте топовый фирменный бургер, вы не разочаруетесь!</dd>
+          <dt class="mini-pseudo-header">Сувениры</dt>
+          <dd class="mini-main-text">Не только китайского, но и настоящего местного производства!</dd>
+        </dl>
+        <p class="pseudo-header">Заинтересовались?</p>
+        <p class="main-text">Укажите предполагаемые даты поездки, и мы покажем вам лучшие предложения гостиниц в Седоне</p>
+        <a href="ссылка на страницу с каталогом" class="button-text">Поиск гостиницы в Седоне</a>
+      </section>
+    </main>
+
+    <footer>
+      <form action="ссылка на сервер" method="post">
+        <label>
+          <p class="pseudo-header">Подпишитесь на рассылку</p>
+          <p class="main-text">Только полезная информация и никакого спама, честное бойскаутское!</p>
+          <input type="email" name="email" value="Ваш e-mail">
+          <input type="submit" name="subscribe" value="Подписаться"> <!--подумать и задать тексту на кнопке class="button-text"-->
+        </label>
+      </form>
+      <address>+7 (812) 812-12-12</address>
+      <a href="https://vk.com/" class="vk visually-hidden">Вконтакте</a>
+      <a href="https://web.telegram.org/" class="tg visually-hidden">Телеграм</a>
+      <a href="https://www.youtube.com/" class="yt visually-hidden">Ютуб</a>
+      <a href="https://htmlacademy.ru/" class="html visually-hidden">HTML academy</a>
+    </footer>
   </body>
 </html>
