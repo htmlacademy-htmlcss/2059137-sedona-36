@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML Academy: Седона</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="visually-hidden">Добро пожаловать в Седону</h1>
+      <nav>
+        <a href="#"><img src="logo"></a>
+        <a href="#">Главная</a>
+        <a href="#">О Седоне</a>
+        <a href="#">Гостиницы</a>
+      </nav>
+      <form action="адрес сервера" method="get">
+        <input type="search" placeholder="Поиск" class="visually-hidden"><img src="картинка с лупой" alt="Поиск">
+      </form>
+      <img src="#" alt="Избранное">
+      <button type="button">Хочу сюда!</button> <!--куда должна вести эта кнопка? на каталог гостиниц? вниз страницы?-->
+    </header>
+    <main>
+      <form action="#" method="get">
+        <h1>Гостиницы Седоны</h1>
+        <p class="micro-main-text-16px">Гостиницы</p>
+        <fieldset class="checkbox">
+          <legend>Инфраструктура</legend>
+          <label>
+            <input type="checkbox" name="swimming-pool" checked> <!--могут ли чекбоксы иметь одно и то же имя? так в примере в статье-->
+            Бассейн
+          </label>
+          <label>
+            <input type="checkbox" name="parking" checked>
+            Парковка
+          </label>
+          <label>
+            <input type="checkbox" name="wifi">
+            Wi-Fi
+          </label>
+        </fieldset>
+        <fieldset class="radio">
+          <legend>Тип Жилья</legend>
+          <input type="radio" name="housing" value="Гостинца" checked>
+          <input type="radio" name="housing" value="Мотель">
+          <input type="radio" name="housing" value="Апартаменты">
+        </fieldset>
+        <fieldset class="cost">
+          <legend>Стоимость, ₽</legend>
+          <label><input type="number" name="price-min" value="0">от</label>
+          <label><input type="number" name="price-max" value="9000">до</label>
+          <input type="range" name="price-range">
+        </fieldset>
+        <button class="blue-button" type="submit">Применить</button>
+        <button class="reset" type="reset">Сбросить</button>
+      </form>
+      <!--не понимаю, как сделать каталог-->
+    </main>
+    <footer>
+      <form action="ссылка на сервер" method="post">
+        <label>
+          <p class="pseudo-header">Подпишитесь на рассылку</p>
+          <p class="main-text">Только полезная информация и никакого спама, честное бойскаутское!</p>
+          <input type="email" name="email" value="Ваш e-mail">
+          <input type="submit" name="subscribe" value="Подписаться" class="button-text">
+        </label>
+      </form>
+      <address>+7 (812) 812-12-12</address>
+      <a href="https://vk.com/" class="vk visually-hidden">Мы Вконтакте</a>
+      <a href="https://web.telegram.org/" class="tg visually-hidden">Мы в Телеграм</a>
+      <a href="https://www.youtube.com/" class="yt visually-hidden">Мы на Ютуб</a>
+      <a href="https://htmlacademy.ru/" class="html visually-hidden">HTML academy</a>
+    </footer>
+  </body>
+</html>
