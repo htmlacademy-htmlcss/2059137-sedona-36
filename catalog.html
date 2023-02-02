@@ -7,18 +7,35 @@
   <body>
     <header>
       <h1 class="visually-hidden">Добро пожаловать в Седону</h1>
-      <nav>
-        <a href="#"><img src="logo"></a>
-        <a href="#">Главная</a>
-        <a href="#">О Седоне</a>
-        <a href="#">Гостиницы</a>
+      <img src="logo.png">
+      <nav class="navigation">
+        <ul class="navigation-list">
+          <li class="navigation-item">
+            <a href="#">Главная</a>
+          </li>
+          <li class="navigation-item">
+            <a href="#">О Седоне</a>
+          </li>
+          <li class="navigation-item">
+            <a href="catalog.html">Гостиницы</a>
+          </li>
+          <li class="navigation-item">
+            <form action="адрес сервера" method="get">
+              <input type="search" placeholder="Поиск"><span class="visually-hidden">Поиск</span>
+            </form>
+          </li>
+          <li class="navigation-item">
+            <a href="#"><span class="visually-hidden">Избранное</span></a>
+          </li>
+          <li class="navigation-item">
+            <form action="адрес сервера" method="get">
+              <button type="button">Хочу сюда!</button> <!--куда должна вести эта кнопка? на каталог гостиниц? вниз страницы?-->
+            </form>
+          </li>
+        </ul>
       </nav>
-      <form action="адрес сервера" method="get">
-        <input type="search" placeholder="Поиск" class="visually-hidden"><img src="картинка с лупой" alt="Поиск">
-      </form>
-      <img src="#" alt="Избранное">
-      <button type="button">Хочу сюда!</button> <!--куда должна вести эта кнопка? на каталог гостиниц? вниз страницы?-->
     </header>
+
     <main>
       <form action="#" method="get">
         <h1>Гостиницы Седоны</h1>
