@@ -5,30 +5,31 @@
     <title>HTML Academy: Седона</title>
   </head>
   <body>
-    <header>
-      <h1 class="visually-hidden">Добро пожаловать в Седону</h1>
-      <img src="logo.png">
+    <header class="main-header">
       <nav class="navigation">
         <ul class="navigation-list">
           <li class="navigation-item">
-            <a href="#">Главная</a>
+            <img src="logo.png">
           </li>
           <li class="navigation-item">
-            <a href="#">О Седоне</a>
+            <a class="navigation-link" href="index.html">Главная</a>
           </li>
           <li class="navigation-item">
-            <a href="catalog.html">Гостиницы</a>
+            <a class="navigation-link" href="about.html">О Седоне</a>
           </li>
           <li class="navigation-item">
-            <form action="адрес сервера" method="get">
-              <input type="search" placeholder="Поиск"><span class="visually-hidden">Поиск</span>
-            </form>
+            <a class="navigation-link" href="catalog.html">Гостиницы</a>
+          </li>
+        </ul>
+        <ul class="navigation-list navigation-picture">
+          <li class="navigation-item">
+            <a class="navigation-link" href="#"><span class="visually-hidden">Поиск</span></a>
           </li>
           <li class="navigation-item">
-            <a href="#"><span class="visually-hidden">Избранное</span></a>
+            <a class="navigation-link" href="#"><span class="visually-hidden">Избранное</span></a>
           </li>
           <li class="navigation-item">
-            <form action="адрес сервера" method="get">
+            <form action="№" method="get">
               <button type="button">Хочу сюда!</button> <!--куда должна вести эта кнопка? на каталог гостиниц? вниз страницы?-->
             </form>
           </li>
@@ -38,6 +39,7 @@
 
     <main>
       <section class="welcome-to-sedona">
+        <h1 class="visually-hidden">Добро пожаловать в Седону</h1>
         <p class="pseudo-header">Седона - небольшой городок в Аризоне, заслуживающий большего!</p>
         <p class="main-text">Рассмотрим причины, по которым Седона круче, чем Гранд-Каньон!</p>
       </section>
