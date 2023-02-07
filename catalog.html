@@ -60,15 +60,15 @@
             <ul class="filter-list list-reset">
               <li class="filter-item">
                 <input class="filter-control-input" id="pool" name="pool" type="checkbox" checked>
-                <lavel class="filter-control-label" for="pool">Бассейн</lavel>
+                <label class="filter-control-label" for="pool">Бассейн</label>
               </li>
               <li class="filter-item">
                 <input class="filter-control-input" id="parking" name="parking" type="checkbox" checked>
-                <lavel class="filter-control-label" for="parking">Парковка</lavel>
+                <label class="filter-control-label" for="parking">Парковка</label>
               </li>
               <li class="ilter-item">
                 <input class="filter-control-input" id="wi-fi" name="wi-fi" type="checkbox">
-                <lavel class="filter-control-label" for="wi-fi">Wi-Fi</lavel>
+                <label class="filter-control-label" for="wi-fi">Wi-Fi</label>
               </li>
             </ul>
           </fieldset>
@@ -78,15 +78,15 @@
             <ul class="filter-list list-reset">
               <li class="filter-item">
                 <input class="filter-control-input" id="hotel" name="hotel-group" type="radio" value="hotel" checked>
-                <lavel class="filter-control-label" for="hotel">Гостиница</lavel>
+                <label class="filter-control-label" for="hotel">Гостиница</label>
               </li>
               <li class="filter-item">
                 <input class="filter-control-input" id="motel" name="hotel-group" type="radio" value="motel">
-                <lavel class="filter-control-label" for="motel">Мотель</lavel>
+                <label class="filter-control-label" for="motel">Мотель</label>
               </li>
               <li class="filter-item">
                 <input class="filter-control-input" id="apartments" name="hotel-group" type="radio" value="apartments">
-                <lavel class="filter-control-label" for="hotel">Апартаменты</lavel>
+                <label class="filter-control-label" for="apartments">Апартаменты</label>
               </li>
             </ul>
           </fieldset>
@@ -130,7 +130,7 @@
           <option value="sorting-expensive">Сначала дорогие</option>
         </select>
         <div class="sorting-view view">
-          <a class="view-link view-link-active" href="#">
+          <a class="view-link view-link-tile view-link-current" href="#">>
             <span class="visually-hidden">Вид плитками</span>
           </a>
           <a class="view-link view-link-slideshow" href="#">
@@ -169,7 +169,7 @@
             <span class="card-description">Гостиница</span>
             <span class="card-description">От 5000 ₽</span>
             <a class="button button-dark card-button card-more" href="#">Подробнее</a>
-            <button class="button button-light card-button card-favorites card-favorites-active" type="button">В избранном</button>
+            <button class="button button-light card-button card-favorites card-favorites-current" type="button">В избранном</button>
             <span class="card-rating-star card-rating-star-4" aria-label="4 звезды."></span>
             <span class="card-rating-text">Рейтинг: 9,2</span>
           </li>
@@ -204,7 +204,6 @@
             <span class="card-rating-text">Рейтинг: 5,0</span>
           </li>
         </ul>
-      </section>
 
         <ul class="pagination list-reset">
           <li class="pagination-item">
