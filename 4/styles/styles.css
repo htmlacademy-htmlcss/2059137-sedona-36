@@ -1,0 +1,105 @@
+@font-face {
+  font-family: "Pt Sans", "Arial", sans-serif;
+  src: url("../fonts/ptsans-400.woff2") format(woff2);
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Pt Sans", "Arial", sans-serif;
+  src: url("../fonts/ptsans-700.woff2") format(woff2);
+  font-display: swap;
+  font-style: bold;
+  font-weight: 700;
+}
+
+body {
+  font-family: "PT Sans", "Arial", sans-serif;
+  font-size: 22px;
+  line-height: 26px;
+  color: #333333;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+header {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+h2 {
+  font-family: "Pt Sans", "Arial", sans-serif;
+  font-style: bold;
+  font-size: 30px;
+  line-height: 36px;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-family: "Pt Sans", "Arial", sans-serif;
+  font-style: bold;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.navigation-link {
+  font-family: "PT Sans", "Arial", sans-serif;
+  font-style: bold;
+  font-size: 20px;
+  line-height: 24px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.button {
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.button-dark {
+  background-color: #756157;
+}
+
+.button-light {
+  background-color: #82B3D3;
+}
+
+.advantages-text {
+  font-family: "Pt Sans", "Arial", sans-serif;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.hero {
+  background-image: url("../images/hero-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* надо добавить, чтобы в этих двух блоках заголовки тоже были белыми - как? дать им отдельный класс? */
+.advantages-item-full {
+  background-color: #82B3D3;
+  color: #ffffff;
+}
+
+/* не понимаю, почему этот код не работает */
+.advantages-item li:nth-child(2) {
+  background-color: rgba(131, 179, 211, 0.12);
+}
+
+.subscribe-home {
+  background-image: url("../images/subscribe-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* не поняла, как добавлять иконки, как сделать списки горизонтальными, как ровнять каталог */
