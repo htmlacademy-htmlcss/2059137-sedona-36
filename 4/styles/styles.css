@@ -1,105 +1,232 @@
 @font-face {
   font-family: "Pt Sans", "Arial", sans-serif;
   src: url("../fonts/ptsans-400.woff2") format(woff2);
-  font-display: swap;
-  font-style: normal;
-  font-weight: 400;
 }
 
-@font-face {
-  font-family: "Pt Sans", "Arial", sans-serif;
-  src: url("../fonts/ptsans-700.woff2") format(woff2);
-  font-display: swap;
-  font-style: bold;
-  font-weight: 700;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  background-color: #f2f2f2;
 }
 
 body {
-  font-family: "PT Sans", "Arial", sans-serif;
-  font-size: 22px;
-  line-height: 26px;
-  color: #333333;
-  background-color: #ffffff;
-  text-align: center;
-}
+  position: relative;
 
-header {
-  color: #000000;
-  background-color: #ffffff;
-}
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 
-h2 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
   font-family: "Pt Sans", "Arial", sans-serif;
-  font-style: bold;
-  font-size: 30px;
-  line-height: 36px;
   color: #000000;
-  text-transform: uppercase;
+
+  background-color: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-h3 {
-  font-family: "Pt Sans", "Arial", sans-serif;
-  font-style: bold;
-  font-size: 24px;
-  line-height: 28px;
-  color: #000000;
-  text-transform: uppercase;
+/* почему картинки не центрировались по блоку? в hero логотип, например */
+img {
+  max-width: 100%;
+
+  object-fit: cover;
+  object-position: center;
 }
 
-ul {
-  list-style-type: none;
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  border: 0;
+
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+}
+
+.list-reset {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
 }
 
 .navigation-link {
-  font-family: "PT Sans", "Arial", sans-serif;
-  font-style: bold;
+  display: inline-block;
+  font-weight: 700;
   font-size: 20px;
   line-height: 24px;
-  color: inherit;
+  vertical-align: middle;
+  color: #000000;
   text-decoration: none;
 }
 
 .button {
+  display: inline-block;
+  padding: 8px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "PT sans", "Arial", sans-serif;
+  text-align: center;
   color: #ffffff;
   text-transform: uppercase;
-}
+  text-decoration: none;
 
-.button-dark {
   background-color: #756157;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .button-light {
   background-color: #82B3D3;
 }
 
-.advantages-text {
-  font-family: "Pt Sans", "Arial", sans-serif;
-  font-style: normal;
-  font-size: 18px;
-  line-height: 21px;
+.button-transparent {
+  background-color: transparent;
+}
+
+.page-title {
+  font-size: 30px;
+  line-height: 36px;
+  color: #000000;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.page-text {
+  font-size: 22px;
+  line-height: 26px;
+  color: #333333;
+  text-align: center;
 }
 
 .hero {
   background-image: url("../images/hero-background.jpg");
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
+  background-size: cover;
+
+  background-color: #f2f2f2; /* кажется, никакой из стайлгайда цвет не подходит? недостаточно контрастный либо сливается */
+  color: #333333;
 }
 
-/* надо добавить, чтобы в этих двух блоках заголовки тоже были белыми - как? дать им отдельный класс? */
+.advantages-title {
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.advantages-text {
+  text-align: center;
+  color: #333333;
+}
+
 .advantages-item-full {
   background-color: #82B3D3;
+}
+
+.advantages-item-full .advantages-title {
   color: #ffffff;
 }
 
-/* не понимаю, почему этот код не работает */
+.advantages-item-full .advantages-text {
+  color: #ffffff;
+}
+
+/* так и не разобралась, почему этот код не работает
+каждый второй должен выбираться по формуле li:nth-child(2n)
+здесь, согласно теории, должен выбраться конкретной второй пункт из списка с классом
+лучшего селектора тоже не придумала без отдельного класса */
 .advantages-item li:nth-child(2) {
   background-color: rgba(131, 179, 211, 0.12);
+}
+
+.advantages-content-home {
+  background-color: rgba(131, 179, 211, 0.12);
+  background-image: url(../images/services-house.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.advantages-content-food {
+  background-image: url(../images/services-food.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.advantages-content-souvenirs {
+  background-color: rgba(131, 179, 211, 0.12);
+  background-image: url(../images/services-gift.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* почему кнопка не становится в центре блока? */
+.search-button {
+  text-align: center;
+}
+
+.subscribe-form {
+  text-align: center;
 }
 
 .subscribe-home {
   background-image: url("../images/subscribe-background.jpg");
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
+  background-size: cover;
+  background-color: #333333;
 }
 
-/* не поняла, как добавлять иконки, как сделать списки горизонтальными, как ровнять каталог */
+.subscribe-home .subscribe-title {
+  color: #ffffff;
+}
+
+.subscribe-home .subscribe-text {
+  color: #ffffff;
+}
+
+.contact-tel {
+  font-size: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+  text-align: center;
+  color: #000000;
+  text-decoration: none;
+}
+
+/* а где правильно размещать элементы стиля второй страницы?
+после полного оформления первой? */
+.filter {
+  background-image: url("../images/filter-background.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: #333333;
+
+  color: #ffffff;
+}
