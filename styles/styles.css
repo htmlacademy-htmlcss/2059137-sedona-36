@@ -1,0 +1,289 @@
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Pt Sans";
+
+  font-display: swap;
+  src: url("../fonts/ptsans-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 700;
+  font-family: "Pt Sans";
+
+  font-display: swap;
+  src: url("../fonts/ptsans-700.woff2") format("woff2");
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  background-color: #f2f2f2;
+}
+
+body {
+  position: relative;
+
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  font-family: "Pt Sans", "Arial", sans-serif;
+  color: #000000;
+
+  background-color: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* почему картинки не центрировались по блоку? в hero логотип, например */
+img {
+  max-width: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  border: 0;
+
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+}
+
+.list-reset {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.navigation-link {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  vertical-align: middle;
+  color: #000000;
+  text-decoration: none;
+}
+
+.button {
+  display: inline-block;
+  padding: 8px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "Pt sans", "Arial", sans-serif;
+  text-align: center;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  background-color: #756157;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button-light {
+  background-color: #82B3D3;
+}
+
+.button-transparent {
+  background-color: transparent;
+}
+
+.page-title {
+  font-size: 30px;
+  line-height: 36px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.page-text {
+  font-size: 22px;
+  line-height: 26px;
+  color: #333333;
+  text-align: center;
+}
+
+.hero {
+  background-image: url("../images/hero-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  background-color: #94989b;
+  color: #ffffff;
+}
+
+.advantages-title {
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.advantages-text {
+  text-align: center;
+  color: #333333;
+}
+
+.advantages-item {
+  background-color: rgba(131, 179, 211, 0.2);
+}
+
+.advantages-item:nth-child(2n) {
+  background-color: rgba(131, 179, 211, 0.12);
+}
+
+.advantages-item-full {
+  background-color: #82B3D3;
+}
+
+.advantages-item-full .advantages-title {
+  color: #ffffff;
+}
+
+.advantages-item-full .advantages-text {
+  color: #ffffff;
+}
+
+.advantages-list-services .advantages-item {
+  background-color: rgba(131, 179, 211, 0.12);
+}
+
+.advantages-list-services .advantages-item:nth-child(2n) {
+  background-color: #ffffff;
+}
+
+.advantages-list-services .advantages-content {
+  padding-top: 183px;
+
+  background-repeat: no-repeat;
+  background-position: center 78px;
+}
+
+.advantages-content-home {
+  background-image: url("../images/services-house.svg");
+}
+
+.advantages-content-food {
+  background-image: url("../images/services-food.svg");
+}
+
+.advantages-content-souvenirs {
+  background-image: url("../images/services-gift.svg");
+}
+
+.search {
+  text-align: center;
+}
+
+.subscribe-form {
+  text-align: center;
+}
+
+.subscribe-home {
+  background-image: url("../images/subscribe-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.subscribe-home .subscribe-text {
+  color: #ffffff;
+}
+
+.form-input {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  list-style: 24px;
+  font-family: "Pt Sans", "Arial", sans-serif;
+}
+
+.filter {
+  background-image: url("../images/filter-background.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: #333333;
+
+  color: #ffffff;
+}
+
+.filter-page-title {
+  margin: 0;
+
+  font-size: 60px;
+  line-height: 78px;
+}
+
+.breadcrumbs-link {
+  font-size: 16px;
+  line-height: 21px;
+}
+
+.filter-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.filter-control-label {
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.sorting-title {
+  margin: 0;
+
+  font-size: 30px;
+  line-height: 36px;
+  text-transform: uppercase;
+}
+
+.card-link {
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+  text-decoration: none;
+}
+
+.contact-tel {
+  display: block;
+  margin: 0 auto;
+
+  font-size: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #000000;
+  text-decoration: none;
+}
