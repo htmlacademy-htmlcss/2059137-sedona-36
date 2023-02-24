@@ -237,10 +237,11 @@ img {
   background-color: #333333;
 
   color: #ffffff;
-  vertical-align: top;
 }
 
 .filter-page-title {
+  margin: 0;
+
   font-size: 60px;
   line-height: 78px;
 }
@@ -262,6 +263,8 @@ img {
 }
 
 .sorting-title {
+  margin: 0;
+
   font-size: 30px;
   line-height: 36px;
   text-transform: uppercase;
