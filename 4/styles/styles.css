@@ -1,6 +1,19 @@
 @font-face {
-  font-family: "Pt Sans", "Arial", sans-serif;
-  src: url("../fonts/ptsans-400.woff2") format(woff2);
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Pt Sans";
+
+  font-display: swap;
+  src: url("../fonts/ptsans-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 700;
+  font-family: "Pt Sans";
+
+  font-display: swap;
+  src: url("../fonts/ptsans-700.woff2") format("woff2");
 }
 
 *,
@@ -84,7 +97,7 @@ img {
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
-  font-family: "PT sans", "Arial", sans-serif;
+  font-family: "Pt sans", "Arial", sans-serif;
   text-align: center;
   color: #ffffff;
   text-transform: uppercase;
@@ -107,7 +120,6 @@ img {
 .page-title {
   font-size: 30px;
   line-height: 36px;
-  color: #000000;
   text-transform: uppercase;
   text-align: center;
 }
@@ -125,14 +137,13 @@ img {
   background-position: center;
   background-size: cover;
 
-  background-color: #f2f2f2; /* кажется, никакой из стайлгайда цвет не подходит? недостаточно контрастный либо сливается */
-  color: #333333;
+  background-color: #94989b;
+  color: #ffffff;
 }
 
 .advantages-title {
   font-size: 24px;
   line-height: 28px;
-  color: #000000;
   text-transform: uppercase;
   text-align: center;
 }
@@ -140,6 +151,14 @@ img {
 .advantages-text {
   text-align: center;
   color: #333333;
+}
+
+.advantages-item {
+  background-color: rgba(131, 179, 211, 0.2);
+}
+
+.advantages-item:nth-child(2n) {
+  background-color: rgba(131, 179, 211, 0.12);
 }
 
 .advantages-item-full {
@@ -154,39 +173,34 @@ img {
   color: #ffffff;
 }
 
-/* так и не разобралась, почему этот код не работает
-каждый второй должен выбираться по формуле li:nth-child(2n)
-здесь, согласно теории, должен выбраться конкретной второй пункт из списка с классом
-лучшего селектора тоже не придумала без отдельного класса */
-.advantages-item li:nth-child(2) {
+.advantages-list-services .advantages-item {
   background-color: rgba(131, 179, 211, 0.12);
+}
+
+.advantages-list-services .advantages-item:nth-child(2n) {
+  background-color: #ffffff;
+}
+
+.advantages-list-services .advantages-content {
+  padding-top: 183px;
+
+  background-repeat: no-repeat;
+  background-position: center 78px;
 }
 
 .advantages-content-home {
-  background-color: rgba(131, 179, 211, 0.12);
-  background-image: url(../images/services-house.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  background-image: url("../images/services-house.svg");
 }
 
 .advantages-content-food {
-  background-image: url(../images/services-food.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  background-image: url("../images/services-food.svg");
 }
 
 .advantages-content-souvenirs {
-  background-color: rgba(131, 179, 211, 0.12);
-  background-image: url(../images/services-gift.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  background-image: url("../images/services-gift.svg");
 }
 
-/* почему кнопка не становится в центре блока? */
-.search-button {
+.search {
   text-align: center;
 }
 
@@ -200,9 +214,6 @@ img {
   background-position: center;
   background-size: cover;
   background-color: #333333;
-}
-
-.subscribe-home .subscribe-title {
   color: #ffffff;
 }
 
@@ -210,17 +221,14 @@ img {
   color: #ffffff;
 }
 
-.contact-tel {
-  font-size: 40px;
-  line-height: 40px;
-  vertical-align: middle;
-  text-align: center;
-  color: #000000;
-  text-decoration: none;
+.form-input {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  list-style: 24px;
+  font-family: "Pt Sans", "Arial", sans-serif;
 }
 
-/* а где правильно размещать элементы стиля второй страницы?
-после полного оформления первой? */
 .filter {
   background-image: url("../images/filter-background.jpeg");
   background-repeat: no-repeat;
@@ -229,4 +237,50 @@ img {
   background-color: #333333;
 
   color: #ffffff;
+  vertical-align: top;
+}
+
+.filter-page-title {
+  font-size: 60px;
+  line-height: 78px;
+}
+
+.breadcrumbs-link {
+  font-size: 16px;
+  line-height: 21px;
+}
+
+.filter-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.filter-control-label {
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.sorting-title {
+  font-size: 30px;
+  line-height: 36px;
+  text-transform: uppercase;
+}
+
+.card-link {
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+  text-decoration: none;
+}
+
+.contact-tel {
+  display: block;
+  margin: 0 auto;
+
+  font-size: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #000000;
+  text-decoration: none;
 }
