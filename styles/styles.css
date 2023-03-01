@@ -23,6 +23,8 @@
 }
 
 html {
+  height: 100%;
+
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -31,8 +33,12 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+
   position: relative;
 
+  min-height: 100%;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -48,7 +54,10 @@ body {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-/* почему картинки не центрировались по блоку? в hero логотип, например */
+.main {
+  flex-grow: 1;
+}
+
 img {
   max-width: 100%;
 
@@ -80,6 +89,26 @@ img {
   list-style: none;
 }
 
+.navigation {
+  display: flex;
+  width: 1060px;
+  height: 64px; /* как убрать лого из-под ограничения высоты хэдера? чтобы он выглядывал */
+  margin: 0 auto;
+  padding: 0;
+  justify-content: space-between;
+}
+
+.navigation-list {
+  margin: 0;
+  padding: 0;
+  width: 507px;
+}
+
+/* как сдвинуть иконки внутри блока к кнопке? */
+.navigation-user-list {
+  width: 268px;
+}
+
 .navigation-link {
   display: inline-block;
   font-weight: 700;
@@ -97,7 +126,7 @@ img {
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
-  font-family: "Pt sans", "Arial", sans-serif;
+  font-family: "Pt Sans", "Arial", sans-serif;
   text-align: center;
   color: #ffffff;
   text-transform: uppercase;
@@ -132,6 +161,7 @@ img {
 }
 
 .hero {
+  height: 485px;
   background-image: url("../images/hero-background.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -139,6 +169,20 @@ img {
 
   background-color: #94989b;
   color: #ffffff;
+}
+
+/* не пойму, как задать паддинги, чтобы центрировалось, а не прижималось к верхней строке */
+.hero img {
+  display: block;
+  margin: 0 auto;
+}
+
+.advantages-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
 }
 
 .advantages-title {
@@ -149,11 +193,14 @@ img {
 }
 
 .advantages-text {
+  width: 230px;
   text-align: center;
   color: #333333;
 }
 
 .advantages-item {
+  width: 400px;
+  height: 384px;
   background-color: rgba(131, 179, 211, 0.2);
 }
 
@@ -162,6 +209,8 @@ img {
 }
 
 .advantages-item-full {
+  width: 1200px;
+  height: 384px;
   background-color: #82B3D3;
 }
 
@@ -171,6 +220,25 @@ img {
 
 .advantages-item-full .advantages-text {
   color: #ffffff;
+}
+
+/* 1. не понимаю, откуда берется отступ над картинкой
+2. не могу затолкать ее в одну строку с текстом */
+.advantages-item-full img {
+  margin: 0;
+  padding: 0;
+  width: 800px;
+  height: 384px;
+  vertical-align: middle;
+}
+
+.advantages-content {
+  padding: 101.5px 85px;
+}
+
+.advantages-container .advantages-content {
+  width: 400px;
+
 }
 
 .advantages-list-services .advantages-item {
@@ -200,11 +268,28 @@ img {
   background-image: url("../images/services-gift.svg");
 }
 
+.page-description {
+  margin-bottom: 21px;
+  padding: 69px;
+}
+
+/* почему не работают другие параметры для этого блока? правило из двух классов же более специфично */
+.page-description .page-description-services {
+  margin-bottom: 0;
+  padding: 64px;
+}
+
 .search {
+  padding: 96px 304px;
   text-align: center;
 }
 
-.subscribe-form {
+/* в каком порядке нужно записывать padding'и? */
+.subscribe {
+  padding-top: 96px;
+  padding-left: 258px;
+  padding-right: 258px;
+  padding-bottom: 104px;
   text-align: center;
 }
 
@@ -230,6 +315,11 @@ img {
 }
 
 .filter {
+  padding-top: 35px;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-bottom: 70px;
+
   background-image: url("../images/filter-background.jpeg");
   background-repeat: no-repeat;
   background-position: center;
@@ -251,7 +341,31 @@ img {
   line-height: 21px;
 }
 
+.filter-form {
+  display: flex;
+  margin-top: 40px;
+}
+
+.filter-group {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.filter-group-check {
+  margin-right: 70px;
+}
+
+.filter-group-radio {
+  margin-right: 140.15px;
+}
+
+.filter-group-range {
+  margin-right: 70px;
+}
+
 .filter-title {
+  margin-bottom: 32px;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
@@ -262,6 +376,16 @@ img {
   line-height: 23px;
 }
 
+/* для задания этих параметров нужно обернуть сортинг, карточки товаров и пагинацию в общий див? */
+.sorting {
+  display: flex;
+  padding-top: 50px;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-bottom: 60px;
+  justify-content: space-between;
+}
+
 .sorting-title {
   margin: 0;
 
@@ -270,11 +394,29 @@ img {
   text-transform: uppercase;
 }
 
+.product-card {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 50px;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-bottom: 60px;
+}
+
 .card-link {
   font-size: 24px;
   line-height: 28px;
   color: #000000;
   text-decoration: none;
+}
+
+.footer {
+  display: flex;
+  height: 120px;
+  padding-top: 40px;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-bottom: 30px;
 }
 
 .contact-tel {
