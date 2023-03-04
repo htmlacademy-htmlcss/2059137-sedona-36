@@ -91,22 +91,30 @@ img {
 
 .navigation {
   display: flex;
-  width: 1060px;
-  height: 64px; /* как убрать лого из-под ограничения высоты хэдера? чтобы он выглядывал */
-  margin: 0 auto;
-  padding: 0;
+  padding: 0 70px;
   justify-content: space-between;
 }
 
-.navigation-list {
-  margin: 0;
-  padding: 0;
-  width: 507px;
+.navigation-logo {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+  width: 140px;
+  height: 70px;
+  margin-bottom: -6px;
 }
 
-/* как сдвинуть иконки внутри блока к кнопке? */
+.navigation-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 28px;
+}
+
 .navigation-user-list {
-  width: 268px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
 }
 
 .navigation-link {
@@ -161,18 +169,19 @@ img {
 }
 
 .hero {
-  height: 485px;
-  background-image: url("../images/hero-background.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  padding: 51px 70px 82px;
+
+  color: #ffffff;
 
   background-color: #94989b;
-  color: #ffffff;
+  background-image: url("../images/hero-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-/* не пойму, как задать паддинги, чтобы центрировалось, а не прижималось к верхней строке */
 .hero img {
+  width: 458px;
+  height: 352px;
   display: block;
   margin: 0 auto;
 }
@@ -181,8 +190,6 @@ img {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 0;
-  padding: 0;
 }
 
 .advantages-title {
@@ -193,14 +200,11 @@ img {
 }
 
 .advantages-text {
-  width: 230px;
   text-align: center;
   color: #333333;
 }
 
 .advantages-item {
-  width: 400px;
-  height: 384px;
   background-color: rgba(131, 179, 211, 0.2);
 }
 
@@ -209,8 +213,7 @@ img {
 }
 
 .advantages-item-full {
-  width: 1200px;
-  height: 384px;
+  width: 100%;
   background-color: #82B3D3;
 }
 
@@ -222,23 +225,16 @@ img {
   color: #ffffff;
 }
 
-/* 1. не понимаю, откуда берется отступ над картинкой
-2. не могу затолкать ее в одну строку с текстом */
-.advantages-item-full img {
-  margin: 0;
-  padding: 0;
-  width: 800px;
-  height: 384px;
-  vertical-align: middle;
+.advantages-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .advantages-content {
-  padding: 101.5px 85px;
-}
-
-.advantages-container .advantages-content {
   width: 400px;
-
+  min-height: 384px;
+  padding: 113px 85px 30px;
 }
 
 .advantages-list-services .advantages-item {
@@ -269,27 +265,25 @@ img {
 }
 
 .page-description {
-  margin-bottom: 21px;
-  padding: 69px;
-}
+  padding: 69px 70px 68px;
 
-/* почему не работают другие параметры для этого блока? правило из двух классов же более специфично */
-.page-description .page-description-services {
-  margin-bottom: 0;
-  padding: 64px;
-}
-
-.search {
-  padding: 96px 304px;
   text-align: center;
 }
 
-/* в каком порядке нужно записывать padding'и? */
+.page-description-services {
+  padding-top: 63px;
+  padding-bottom: 41px;
+}
+
+.search {
+  padding: 96px 70px;
+
+  text-align: center;
+}
+
 .subscribe {
-  padding-top: 96px;
-  padding-left: 258px;
-  padding-right: 258px;
-  padding-bottom: 104px;
+  padding: 96px 70px 104px;
+
   text-align: center;
 }
 
@@ -307,26 +301,28 @@ img {
 }
 
 .form-input {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  list-style: 24px;
+  width: 100%;
+  height: 52px;
+  padding: 20px;
+
+  font-size: 17px;
+  line-height: 26px;
   font-family: "Pt Sans", "Arial", sans-serif;
+
+  background: #f2f2f2;
+  border: 2px solid transparent;
+  border-radius: 4px 0 0 4px;
 }
 
 .filter {
-  padding-top: 35px;
-  padding-left: 70px;
-  padding-right: 70px;
-  padding-bottom: 70px;
-
-  background-image: url("../images/filter-background.jpeg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-color: #333333;
+  padding: 35px 70px 68px;
 
   color: #ffffff;
+
+  background-color: #94989b;
+  background-image: url("../images/filter-background.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .filter-page-title {
@@ -343,6 +339,7 @@ img {
 
 .filter-form {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 40px;
 }
 
@@ -376,14 +373,8 @@ img {
   line-height: 23px;
 }
 
-/* для задания этих параметров нужно обернуть сортинг, карточки товаров и пагинацию в общий див? */
 .sorting {
-  display: flex;
-  padding-top: 50px;
-  padding-left: 70px;
-  padding-right: 70px;
-  padding-bottom: 60px;
-  justify-content: space-between;
+  padding: 32px 70px 20px;
 }
 
 .sorting-title {
@@ -394,29 +385,76 @@ img {
   text-transform: uppercase;
 }
 
+.sorting-select {
+  width: 292px;
+  height: 49px;
+  padding: 0 40px 0 18px;
+
+  font-size: 18px;
+  line-height: 21px;
+  font-family: "Pt Sans", "Arial", sans-serif;
+  color: #333333;
+
+  background-color: transparent;
+  background-image: url("../images/sorting-select.svg");
+  background-repeat: no-repeat;
+  background-position: center right 18px;
+  border: 2px solid #e5e5e5;
+  border-radius: 4px;
+
+  appearance: none;
+}
+
+.view {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 8px;
+}
+
+.view-link {
+  display: block;
+  width: 48px;
+  height: 48px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 14px;
+  border: 2px solid #e5e5e5;
+  border-radius: 4px;
+}
+
+.view-link-tile {
+  background-image: url("../images/icon-tile.svg");
+}
+
+.view-link-slideshow {
+  background-image: url("../images/icon-slideshow.svg");
+}
+
+.view-link-list {
+  background-image: url("../images/icon-list.svg");
+}
+
 .product-card {
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 50px;
-  padding-left: 70px;
-  padding-right: 70px;
-  padding-bottom: 60px;
+  padding: 0 70px 24px;
 }
 
 .card-link {
-  font-size: 24px;
-  line-height: 28px;
   color: #000000;
   text-decoration: none;
 }
 
+.product-card-title {
+  margin: 0;
+
+  font-size: 24px;
+  line-height: 28px;
+}
+
 .footer {
   display: flex;
-  height: 120px;
-  padding-top: 40px;
-  padding-left: 70px;
-  padding-right: 70px;
-  padding-bottom: 30px;
+  flex-wrap: wrap;
+  padding: 45px 70px 35px;
 }
 
 .contact-tel {
@@ -428,4 +466,12 @@ img {
   text-align: center;
   color: #000000;
   text-decoration: none;
+}
+
+.footer-developer {
+  display: block;
+  width: 115px;
+  height: 33px;
+
+  color: #000000;
 }
