@@ -23,6 +23,8 @@
 }
 
 html {
+  height: 100%;
+
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -31,8 +33,12 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+
   position: relative;
 
+  min-height: 100%;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -48,7 +54,10 @@ body {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-/* почему картинки не центрировались по блоку? в hero логотип, например */
+.main {
+  flex-grow: 1;
+}
+
 img {
   max-width: 100%;
 
@@ -80,6 +89,34 @@ img {
   list-style: none;
 }
 
+.navigation {
+  display: flex;
+  padding: 0 70px;
+  justify-content: space-between;
+}
+
+.navigation-logo {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+  width: 140px;
+  height: 70px;
+  margin-bottom: -6px;
+}
+
+.navigation-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 28px;
+}
+
+.navigation-user-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
 .navigation-link {
   display: inline-block;
   font-weight: 700;
@@ -97,7 +134,7 @@ img {
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
-  font-family: "Pt sans", "Arial", sans-serif;
+  font-family: "Pt Sans", "Arial", sans-serif;
   text-align: center;
   color: #ffffff;
   text-transform: uppercase;
@@ -132,13 +169,27 @@ img {
 }
 
 .hero {
-  background-image: url("../images/hero-background.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  padding: 51px 70px 82px;
+
+  color: #ffffff;
 
   background-color: #94989b;
-  color: #ffffff;
+  background-image: url("../images/hero-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero img {
+  width: 458px;
+  height: 352px;
+  display: block;
+  margin: 0 auto;
+}
+
+.advantages-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .advantages-title {
@@ -162,6 +213,7 @@ img {
 }
 
 .advantages-item-full {
+  width: 100%;
   background-color: #82B3D3;
 }
 
@@ -171,6 +223,18 @@ img {
 
 .advantages-item-full .advantages-text {
   color: #ffffff;
+}
+
+.advantages-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.advantages-content {
+  width: 400px;
+  min-height: 384px;
+  padding: 113px 85px 30px;
 }
 
 .advantages-list-services .advantages-item {
@@ -200,11 +264,26 @@ img {
   background-image: url("../images/services-gift.svg");
 }
 
-.search {
+.page-description {
+  padding: 69px 70px 68px;
+
   text-align: center;
 }
 
-.subscribe-form {
+.page-description-services {
+  padding-top: 63px;
+  padding-bottom: 41px;
+}
+
+.search {
+  padding: 96px 70px;
+
+  text-align: center;
+}
+
+.subscribe {
+  padding: 96px 70px 104px;
+
   text-align: center;
 }
 
@@ -222,21 +301,28 @@ img {
 }
 
 .form-input {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  list-style: 24px;
+  width: 100%;
+  height: 52px;
+  padding: 20px;
+
+  font-size: 17px;
+  line-height: 26px;
   font-family: "Pt Sans", "Arial", sans-serif;
+
+  background: #f2f2f2;
+  border: 2px solid transparent;
+  border-radius: 4px 0 0 4px;
 }
 
 .filter {
-  background-image: url("../images/filter-background.jpeg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-color: #333333;
+  padding: 35px 70px 68px;
 
   color: #ffffff;
+
+  background-color: #94989b;
+  background-image: url("../images/filter-background.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .filter-page-title {
@@ -251,7 +337,32 @@ img {
   line-height: 21px;
 }
 
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.filter-group {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.filter-group-check {
+  margin-right: 70px;
+}
+
+.filter-group-radio {
+  margin-right: 140.15px;
+}
+
+.filter-group-range {
+  margin-right: 70px;
+}
+
 .filter-title {
+  margin-bottom: 32px;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
@@ -262,6 +373,10 @@ img {
   line-height: 23px;
 }
 
+.sorting {
+  padding: 32px 70px 20px;
+}
+
 .sorting-title {
   margin: 0;
 
@@ -270,11 +385,76 @@ img {
   text-transform: uppercase;
 }
 
+.sorting-select {
+  width: 292px;
+  height: 49px;
+  padding: 0 40px 0 18px;
+
+  font-size: 18px;
+  line-height: 21px;
+  font-family: "Pt Sans", "Arial", sans-serif;
+  color: #333333;
+
+  background-color: transparent;
+  background-image: url("../images/sorting-select.svg");
+  background-repeat: no-repeat;
+  background-position: center right 18px;
+  border: 2px solid #e5e5e5;
+  border-radius: 4px;
+
+  appearance: none;
+}
+
+.view {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 8px;
+}
+
+.view-link {
+  display: block;
+  width: 48px;
+  height: 48px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 14px;
+  border: 2px solid #e5e5e5;
+  border-radius: 4px;
+}
+
+.view-link-tile {
+  background-image: url("../images/icon-tile.svg");
+}
+
+.view-link-slideshow {
+  background-image: url("../images/icon-slideshow.svg");
+}
+
+.view-link-list {
+  background-image: url("../images/icon-list.svg");
+}
+
+.product-card {
+  padding: 0 70px 24px;
+}
+
 .card-link {
-  font-size: 24px;
-  line-height: 28px;
   color: #000000;
   text-decoration: none;
+}
+
+.product-card-title {
+  margin: 0;
+
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 45px 70px 35px;
 }
 
 .contact-tel {
@@ -286,4 +466,12 @@ img {
   text-align: center;
   color: #000000;
   text-decoration: none;
+}
+
+.footer-developer {
+  display: block;
+  width: 115px;
+  height: 33px;
+
+  color: #000000;
 }
