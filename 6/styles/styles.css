@@ -1,0 +1,562 @@
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Pt Sans";
+
+  font-display: swap;
+  src: url("../fonts/ptsans-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 700;
+  font-family: "Pt Sans";
+
+  font-display: swap;
+  src: url("../fonts/ptsans-700.woff2") format("woff2");
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  background-color: #f2f2f2;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+
+  min-height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  font-family: "Pt Sans", "Arial", sans-serif;
+  color: #000000;
+
+  background-color: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.main {
+  flex-grow: 1;
+}
+
+img {
+  max-width: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  border: 0;
+
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+}
+
+.list-reset {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0 70px;
+}
+
+.navigation-logo {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+  width: 140px;
+  height: 70px;
+  margin-bottom: -6px;
+}
+
+.navigation-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 28px;
+}
+
+.navigation-user-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.navigation-link {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  vertical-align: middle;
+  color: #000000;
+  text-decoration: none;
+
+  padding: 20px 16px;
+}
+
+.navigation-user-link {
+  min-width: 44px;
+  min-height: 64px;
+  padding: 22px 12px;
+}
+
+.button {
+  display: inline-block;
+  padding: 8px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "Pt Sans", "Arial", sans-serif;
+  text-align: center;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  background-color: #756157;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button-light {
+  background-color: #82B3D3;
+}
+
+.button-transparent {
+  background-color: transparent;
+}
+
+.page-title {
+  font-size: 30px;
+  line-height: 36px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.page-text {
+  font-size: 22px;
+  line-height: 26px;
+  color: #333333;
+  text-align: center;
+}
+
+.hero {
+  padding: 51px 70px 82px;
+
+  color: #ffffff;
+
+  background-color: #94989b;
+  background-image: url("../images/hero-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero img {
+  width: 458px;
+  height: 352px;
+  display: block;
+  margin: 0 auto;
+}
+
+.advantages-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.advantages-container {
+  display: flex;
+}
+
+/* почему не разворачивается? */
+.advantages-container:nth-child(2n) {
+  flex-direction: row-reverse;
+}
+
+.advantages-title {
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.advantages-text {
+  text-align: center;
+  color: #333333;
+}
+
+.advantages-item {
+  background-color: rgba(131, 179, 211, 0.2);
+}
+
+.advantages-item:nth-child(2n) {
+  background-color: rgba(131, 179, 211, 0.12);
+}
+
+.advantages-item-full {
+  width: 100%;
+  background-color: #82B3D3;
+}
+
+.advantages-item-full .advantages-title {
+  color: #ffffff;
+}
+
+.advantages-item-full .advantages-text {
+  color: #ffffff;
+}
+
+/* мы этим кодом убираем выглядывающий кусочек фона снизу под картинкой?
+а почему не так:
+
+.advantages-image img {
+  vertical-align: middle;
+}
+
+*/
+.advantages-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.advantages-content {
+  width: 400px;
+  min-height: 384px;
+  padding: 113px 85px 30px;
+}
+
+.advantages-list-services .advantages-item {
+  background-color: rgba(131, 179, 211, 0.12);
+}
+
+.advantages-list-services .advantages-item:nth-child(2n) {
+  background-color: #ffffff;
+}
+
+.advantages-list-services .advantages-content {
+  padding-top: 183px;
+
+  background-repeat: no-repeat;
+  background-position: center 78px;
+}
+
+.advantages-content-home {
+  background-image: url("../images/services-house.svg");
+}
+
+.advantages-content-food {
+  background-image: url("../images/services-food.svg");
+}
+
+.advantages-content-souvenirs {
+  background-image: url("../images/services-gift.svg");
+}
+
+.page-description {
+  padding: 69px 70px 68px;
+
+  text-align: center;
+}
+
+.page-description-services {
+  padding-top: 63px;
+  padding-bottom: 41px;
+}
+
+.search {
+  padding: 96px 70px;
+
+  text-align: center;
+}
+
+.subscribe {
+  padding: 96px 70px 104px;
+
+  text-align: center;
+}
+
+.subscribe-home {
+  background-image: url("../images/subscribe-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.subscribe-home .subscribe-text {
+  color: #ffffff;
+}
+
+.form-input {
+  width: 100%;
+  height: 48px;
+  padding: 13px 17px 10px;
+
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  font-family: "Pt Sans", sans-serif;
+  color: #000000;
+
+  background-color: #f2f2f2;
+  border: 2px solid transparent;
+  border-radius: 4px;
+
+  appearance: none;
+}
+
+.filter {
+  padding: 35px 70px 68px;
+
+  color: #ffffff;
+
+  background-color: #94989b;
+  background-image: url("../images/filter-background.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.filter-page-title {
+  margin: 0;
+
+  font-size: 60px;
+  line-height: 78px;
+}
+
+.breadcrumbs-link {
+  font-size: 16px;
+  line-height: 21px;
+  margin-left: 40px; /* под иконки? */
+}
+
+/* правильно ли понимаю, как вставить иконку? здесь нужно в одной картинке соединить домик и стрелочку? */
+.breadcrumbs-link-home {
+  background-image: url("../images/icon-breadcrumbs.svg");
+}
+
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.filter-group {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.filter-group-check {
+  margin-right: 70px;
+}
+
+.filter-group-radio {
+  margin-right: 140.15px;
+}
+
+.filter-group-range {
+  margin-right: 70px;
+}
+
+.filter-title {
+  margin-bottom: 32px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.filter-control-label {
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.sorting {
+  padding: 32px 70px 20px;
+}
+
+.sorting-title {
+  margin: 0;
+
+  font-size: 30px;
+  line-height: 36px;
+  text-transform: uppercase;
+}
+
+.sorting-select {
+  width: 292px;
+  height: 49px;
+  padding: 0 40px 0 18px;
+
+  font-size: 18px;
+  line-height: 21px;
+  font-family: "Pt Sans", "Arial", sans-serif;
+  color: #333333;
+
+  background-color: transparent;
+  background-image: url("../images/sorting-select.svg");
+  background-repeat: no-repeat;
+  background-position: center right 18px;
+  border: 2px solid #e5e5e5;
+  border-radius: 4px;
+
+  appearance: none;
+}
+
+.view {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 8px;
+}
+
+.view-link {
+  display: block;
+  width: 48px;
+  height: 48px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 14px;
+  border: 2px solid #e5e5e5;
+  border-radius: 4px;
+}
+
+.view-link-tile {
+  background-image: url("../images/icon-tile.svg");
+}
+
+.view-link-slideshow {
+  background-image: url("../images/icon-slideshow.svg");
+}
+
+.view-link-list {
+  background-image: url("../images/icon-list.svg");
+}
+
+.product-card {
+  padding: 0 70px 24px;
+}
+
+.card-link {
+  color: #000000;
+  text-decoration: none;
+}
+
+.product-card-title {
+  margin: 0;
+
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.pagination {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  border-radius: 25%;
+}
+
+.pagination-item {
+  margin-right: 8px;
+}
+
+.pagination-link {
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  padding: 12px 18px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 36px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #82B3D3;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.pagination-current {
+  color: #000000;
+  background-color: #f2f2f2;
+}
+
+.pagination-link-more {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 45px 70px 35px;
+}
+
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin: 0;
+  padding: 12px;
+}
+
+.contact-tel {
+  display: block;
+  margin: 0 auto;
+
+  font-size: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #000000;
+  text-decoration: none;
+}
+
+.footer-developer {
+  display: block;
+  width: 115px;
+  height: 33px;
+
+  color: #000000;
+}
