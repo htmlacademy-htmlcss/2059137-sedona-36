@@ -205,7 +205,7 @@ img {
   display: flex;
 }
 
-/* почему не разворачивается? */
+/* почему здесь картинка не разворачивается? */
 .advantages-container:nth-child(2n) {
   flex-direction: row-reverse;
 }
@@ -328,6 +328,15 @@ img {
 
 .subscribe-form {
   display: flex;
+  justify-content: center;
+}
+
+.subscribe-button {
+  width: 232px;
+  height: 52px;
+  font-size: 20px;
+  line-height: 36px;
+  border-radius: 0 4px 4px 0;
 }
 
 .form-input {
@@ -348,8 +357,15 @@ img {
   appearance: none;
 }
 
+.subscribe-input {
+  font-weight: 400;
+  width: 452px;
+  height: 52px;
+  border-radius: 4px 0 0 4px;
+}
+
 .filter {
-  padding: 35px 70px 68px;
+  padding: 35px 70px 70px;
 
   color: #ffffff;
 
@@ -383,21 +399,13 @@ img {
   background-repeat: no-repeat;
 }
 
-/* сломала голову, не разобралась, как их сделать на гриде - не смогла вынести заголовки в верхнюю строку и опустить кнопки на вторую */
-.filter-form {
+/* заккоментировала флексовые настройки, чтобы не удалять пока
+ .filter-form {
   display: flex;
   flex-wrap: wrap;
+} */
 
-  padding: 20px 0 0; /* так правильно делать отступы? */
-}
-
-.filter-group {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
-.filter-group-check {
+/* .filter-group-check {
   margin-right: 70px;
 }
 
@@ -412,10 +420,48 @@ img {
 .filter-button {
   display: flex;
   flex-direction: column;
+} */
+
+.filter-form {
+  display: grid;
+  grid-template-columns: 220px 290px auto 190px;
+
+  padding: 40px 0 0;
+}
+
+.filter-group {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.filter-group-check .filter-item {
+  padding-bottom: 16px;
+}
+
+.filter-group-check .filter-item:last-child {
+  padding-bottom: 0;
+}
+
+.filter-group-radio .filter-item {
+  padding-bottom: 16px;
+}
+
+.filter-group-radio .filter-item:last-child {
+  padding-bottom: 0;
 }
 
 .filter-range-change {
   display: flex;
+}
+
+.filter-range-input-min {
+  margin-right: 2px; /* почему не видно этот разрыв, как на макете? */
+  border-radius: 4px 0 0 4px;
+}
+
+.filter-range-input-max {
+  border-radius: 0 4px 4px 0;
 }
 
 .filter-title {
@@ -430,10 +476,25 @@ img {
   line-height: 23px;
 }
 
+.filter-button {
+  padding: 56px 0 0;
+}
+
+.filter-submit {
+  width: 190px;
+  text-align: center;
+}
+
+.filter-reset {
+  padding: 32px 0 0;
+  width: 190px;
+  text-align: center;
+}
+
 .sorting {
   display: flex;
-  justify-content: space-between;
-  padding: 32px 70px 20px;
+  align-items: center;
+  padding: 50px 70px 40px;  /* на макете такие отступы, решила не добавлять верхний паддинг гриду и сделать здесь*/
 }
 
 .sorting-title {
@@ -444,11 +505,13 @@ img {
   text-transform: uppercase;
 }
 
-/* не пойму, как сделать селект ближе к гриду view */
+/* не пойму, правильно ли я сдвинула сортинг к view */
 .sorting-select {
   width: 292px;
   height: 49px;
   padding: 0 40px 0 18px;
+  margin-left: auto;
+  margin-right: 70px;
 
   font-size: 18px;
   line-height: 21px;
@@ -495,7 +558,7 @@ img {
   background-image: url("../images/icon-list.svg");
 }
 
-/* как спрятать здесь стрелочку? */
+/* как спрятать здесь стрелочку? она же обозначает выбранную ссылку сейчас? */
 .view-link-current {
   text-decoration: none;
   border-color: #000000;
@@ -509,8 +572,6 @@ img {
   display: grid;
   grid-template-columns: repeat(3, auto);
   gap: 20px;
-
-  /* padding-top: 20px; нужен тут? между сортингом и карточками 40px  на макете, и вверху у сортинга 50px, а не 32px, как задано сейчас */
 }
 
 .card-item {
@@ -523,6 +584,13 @@ img {
   border: 1px solid #e6e6e6;
   border-radius: 4px;
 }
+
+/* у меня не работает через object-fit: cover; в чем проблема? задано делать через это свойство
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}*/
 
 .card-img {
   grid-column: 1 / -1;
@@ -563,8 +631,7 @@ img {
 
 .pagination {
   display: flex;
-  margin-top: 40px; /* выглядит как на макете, но для единообразия лучше задать паддингом? половина от пагинации, половина от декоративной линии? */
-  padding: 0;
+  padding: 40px 0 0; /* в макете 80px, но есть еще декоративная полоска, норм если у нее тоже будет паддинг сверху 40px? */
   border-radius: 25%;
 }
 
