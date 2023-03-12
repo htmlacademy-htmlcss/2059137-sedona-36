@@ -132,15 +132,40 @@ img {
   padding: 20px 16px;
 }
 
+.navigation-link-current::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -3px;
+  left: 0;
+  height: 2px;
+  background-color: #756257;
+}
+
 .navigation-user-link {
-  min-width: 44px;
-  min-height: 64px;
-  padding: 22px 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.navigation-user-link-favorites-num {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  padding: 5px;
+  font-size: 10px;
+  line-height: 10px;
+  color: #ffffff;
+  background-color: #7db54f;
+  border-radius: 10px;
 }
 
 .navigation-button {
   width: 160px;
-  padding-bottom: 9px;
 }
 
 .button {
@@ -202,6 +227,18 @@ img {
   margin: 0 auto;
 }
 
+.hero::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 57px;
+  background-image: url(../images/hero-white.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .advantages-list {
   display: flex;
   flex-wrap: wrap;
@@ -221,6 +258,21 @@ img {
   line-height: 28px;
   text-transform: uppercase;
   text-align: center;
+}
+
+.advantages-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 60px;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.3);
+  transform: translateX(-50%);
+}
+
+.advantages-item-full .advantages-title::after {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .advantages-text {
@@ -249,18 +301,11 @@ img {
   color: #ffffff;
 }
 
-
-.advantages-image img {
-  vertical-align: middle;
-}
-
-/* чем верхний вариант хуже этого?
 .advantages-image img {
   display: block;
   width: 100%;
   height: 100%;
 }
-*/
 
 .advantages-content {
   width: 400px;
@@ -339,7 +384,6 @@ img {
 .subscribe-home {
   background-image: url("../images/subscribe-background.jpg");
   background-repeat: no-repeat;
-  background-position: center;
   background-size: cover;
   background-color: #333333;
   color: #ffffff;
@@ -369,27 +413,6 @@ img {
   border-radius: 0 4px 4px 0;
 }
 
-/* почему не оставить на флексе? ведь тот же результат и код еще проще?
-.subscribe-form {
-  display: flex;
-  justify-content: center;
-}
-
-.subscribe-input {
-  width: 452px;
-  height: 52px;
-  font-weight: 400;
-  border-radius: 4px 0 0 4px;
-}
-
-.subscribe-button {
-  width: 232px;
-  font-size: 20px;
-  line-height: 36px;
-  border-radius: 0 4px 4px 0;
-}
-*/
-
 .filter {
   padding: 35px 70px 70px;
 
@@ -402,7 +425,7 @@ img {
 }
 
 .filter-page-title {
-  margin: 0;
+  margin: 0 0 7px;
   padding: 0;
 
   font-size: 60px;
@@ -412,7 +435,13 @@ img {
 .breadcrumbs {
   display: flex;
   flex-wrap: wrap;
-  padding: 8px 0 0;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.breadcrumbs-item {
+  position: relative;
+  margin-right: 28px;
 }
 
 .breadcrumbs-link {
@@ -420,10 +449,27 @@ img {
   line-height: 21px;
 }
 
-/* не понимаю, почему не видно домик, и нужно ли его объединять со стрелочкой (а если нет, то как ее вставить) */
 .breadcrumbs-link-home {
+  display: block;
+  width: 13px;
+  height: 21px;
   background-image: url("../images/icon-breadcrumbs.svg");
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: 13px 15px;
+}
+
+.breadcrumbs-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -18px;
+  width: 7px;
+  height: 10px;
+  background-image: url("../images/breadcrumbs-arrow.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translateY(-50%);
 }
 
 .filter-form {
@@ -431,7 +477,6 @@ img {
   grid-template-columns: auto auto 1fr 190px;
   gap: 20px 70px;
   align-items: start;
-  padding: 40px 0 0;
 }
 
 .filter-group {
@@ -440,30 +485,73 @@ img {
   border: none;
 }
 
-.filter-group-check .filter-item {
-  padding-bottom: 16px;
+.filter-title {
+  margin-bottom: 32px;
+  padding: 0;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
 }
 
-.filter-group-check .filter-item:last-child {
-  padding-bottom: 0;
+.filter-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  justify-content: start;
 }
 
-.filter-group-radio .filter-item {
-  padding-bottom: 16px;
+.filter-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 17px;
 }
 
-.filter-group-radio .filter-item:last-child {
-  padding-bottom: 0;
+.filter-control-input[type="checkbox"]:checked {
+  background-image: url(../images/icon-check.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.filter-control-input[type="radio"] {
+  border-radius: 50%;
+}
+
+.filter-control-input[type="radio"]:checked {
+  background-image: url(../images/icon-dot.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.filter-control-input {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  background-color: #ffffff;
+  border-radius: 4px;
+  appearance: none;
 }
 
 .filter-group-range {
-  margin-left: auto; /* так прижать стоимость? без маргина приклеивается к апартаментам (с учетом гэпа 70) */
+  margin-left: auto;
 }
 
 .filter-range-change {
   display: grid;
   grid-template-columns: 143px 143px;
   gap: 2px;
+}
+
+.filter-range-item {
+  position: relative;
+}
+
+.form-input[type="number"], .form-input[type="text"] {
+  appearance: textfield;
+}
+
+.filter-range-input {
+  padding: 10px 45px 10px 18px;
 }
 
 .filter-range-input-min {
@@ -474,16 +562,55 @@ img {
   border-radius: 0 4px 4px 0;
 }
 
-.filter-title {
-  margin-bottom: 32px;
-  font-size: 20px;
-  font-weight: 700;
+.filter-range-item label {
+  position: absolute;
+  right: 0;
+  padding: 11px 20px;
+  font-size: 18px;
   line-height: 24px;
+  color: rgba(0, 0, 0, 0.3);
 }
 
 .filter-control-label {
   font-size: 18px;
   line-height: 23px;
+}
+
+.filter-toggle-item {
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 5px;
+}
+
+.filter-toggle-item-min {
+  left: 0;
+}
+
+.filter-toggle-item-max {
+  right: 21%;
+}
+
+.filter-toggle::before {
+  left: 0;
+  width: 76%;
+  background-color: #ffffff;
+}
+
+.filter-toggle::before, .filter-toggle::after {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  height: 4px;
+}
+
+.filter-toggle::after {
+  right: 0;
+  width: 24%;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .filter-button {
@@ -565,18 +692,11 @@ img {
 
 .view-link-current {
   text-decoration: none;
-  border-color: #000000;
+  border: 2px solid #000000;
 }
 
 .product-card {
   padding: 0 70px 24px;
-}
-
-.product-card-title {
-  margin: 0;
-
-  font-size: 24px;
-  line-height: 28px;
 }
 
 .product-card-list {
@@ -615,8 +735,18 @@ img {
   text-decoration: none;
 }
 
+.card-title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 28px;
+}
+
 .card-description + .card-description {
   text-align: right;
+}
+
+.card-favorites-current {
+  background-color: #7db54f;
 }
 
 .card-rating-text {
@@ -632,6 +762,26 @@ img {
   background-color: #f2f2f2;
   border: none;
   border-radius: 4px;
+}
+
+.card-rating-star {
+  display: block;
+  height: 37px;
+  background-image: url(../images/stars.svg);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.card-rating-star-4 {
+  width: 90px;
+}
+
+.card-rating-star-3 {
+  width: 70px;
+}
+
+.card-rating-star-2 {
+  width: 49px;
 }
 
 .pagination {

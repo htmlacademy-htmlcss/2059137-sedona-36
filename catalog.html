@@ -59,7 +59,7 @@
         <form class="filter-form" action="https://echo.htmlacademy.ru/" method="get">
 
           <fieldset class="filter-group filter-group-check">
-            <legend class="filter-title">Инфраструктура</legend>
+            <legend class="filter-title">Инфраструктура:</legend>
             <ul class="filter-list list-reset">
               <li class="filter-item">
                 <input class="filter-control-input" id="pool" name="pool" type="checkbox" checked>
@@ -69,7 +69,7 @@
                 <input class="filter-control-input" id="parking" name="parking" type="checkbox" checked>
                 <label class="filter-control-label" for="parking">Парковка</label>
               </li>
-              <li class="ilter-item">
+              <li class="filter-item">
                 <input class="filter-control-input" id="wi-fi" name="wi-fi" type="checkbox">
                 <label class="filter-control-label" for="wi-fi">Wi-Fi</label>
               </li>
@@ -77,7 +77,7 @@
           </fieldset>
 
           <fieldset class="filter-group filter-group-radio">
-            <legend class="filter-title">Тип Жилья</legend>
+            <legend class="filter-title">Тип Жилья:</legend>
             <ul class="filter-list list-reset">
               <li class="filter-item">
                 <input class="filter-control-input" id="hotel" name="hotel-group" type="radio" value="hotel" checked>
@@ -99,11 +99,11 @@
             <div class="filter-range-container">
               <div class="filter-range-change">
                 <div class="filter-range-item">
-                  <input class="form-input filter-range-input filter-range-input-min" id="min" name="min-price" type="number" value="0" min="0" max="9000">
+                  <input class="form-input filter-range-input filter-range-input-min" id="min" name="min-price" type="number" placeholder="0" value="0" min="0" max="9000">
                   <label for="min">от</label>
                 </div>
                 <div class="filter-range-item">
-                  <input class="form-input filter-range-input filter-range-input-max" id="max" name="max-price" type="number" value="9000" min="0" max="9000">
+                  <input class="form-input filter-range-input filter-range-input-max" id="max" name="max-price" type="number" placeholder="9000" value="9000" min="0" max="9000">
                   <label for="max">до</label>
                 </div>
               </div>
@@ -129,7 +129,7 @@
       <section class="sorting">
         <h2 class="sorting-title">Найдено гостиниц: 38</h2>
         <select class="sorting-select" name="sorting" aria-label="Сортировка">
-          <option value="sorting-uncostly">Сначала дешевые</option>
+          <option value="sorting-uncostly" selected>Сначала дешевые</option>
           <option value="sorting-expensive">Сначала дорогие</option>
         </select>
         <div class="sorting-view view">
@@ -152,7 +152,7 @@
               <img src="images/hotels/hotel-1.jpg" alt="Amara Resort &amp; Spa" width="300" height="212">
             </a>
             <a class="card-link" href="#">
-              <h3 class="product-card-title">Amara Resort &amp; Spa</h3>
+              <h3 class="card-title">Amara Resort &amp; Spa</h3>
             </a>
             <span class="card-description">Гостиница</span>
             <span class="card-description">От 4000 ₽</span>
