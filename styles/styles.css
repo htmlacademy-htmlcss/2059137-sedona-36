@@ -39,8 +39,7 @@ body {
   position: relative;
 
   min-height: 100%;
-  width: 100%;
-  max-width: 1200px;
+  width: 1200px;
   margin: 0 auto;
 
   font-style: normal;
@@ -108,10 +107,47 @@ img {
   margin-bottom: -6px;
 }
 
+.navigation-item {
+  margin: 0 16px;
+}
+
 .navigation-list {
   display: flex;
   flex-wrap: wrap;
   margin-left: 6px;
+}
+
+.navigation-link {
+  display: inline-block;
+  position: relative;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  vertical-align: middle;
+  color: #000000;
+  text-decoration: none;
+
+  padding: 19px 0 17px;
+}
+
+.navigation-link:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.navigation-link:active {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+/* почему-то на главной меньше видно полоску, как будто один пиксель съеден фоном hero. но почему? */
+.navigation-link-current::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -3px;
+  left: 0;
+  height: 2px;
+  background-color: #756257;
 }
 
 .navigation-user-list {
@@ -120,27 +156,30 @@ img {
   margin-left: auto;
 }
 
-.navigation-link {
-  display: inline-block;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
-  vertical-align: middle;
-  color: #000000;
-  text-decoration: none;
-
-  padding: 20px 16px;
+.navigation-user-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
 }
 
-.navigation-user-link {
-  min-width: 44px;
-  min-height: 64px;
-  padding: 22px 12px;
+.navigation-user-link-favorites-num {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  padding: 5px;
+  font-size: 10px;
+  line-height: 10px;
+  color: #ffffff;
+  background-color: #7db54f;
+  border-radius: 10px;
 }
 
 .navigation-button {
   width: 160px;
-  padding-bottom: 9px;
 }
 
 .button {
@@ -162,11 +201,54 @@ img {
   cursor: pointer;
 }
 
+.button:hover {
+  background-color: #615048;
+}
+
+.button:focus {
+  background-color: #615048;
+}
+
+.button:active {
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #756157;
+}
+
 .button-light {
   background-color: #82B3D3;
 }
 
+.button-light:hover,
+.button-light:focus {
+  background-color: #68a2ca;
+}
+
+.button-light:active {
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #82b3d3;
+}
+
 .button-transparent {
+  background-color: transparent;
+}
+
+.button-transparent:hover {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: transparent; /* почему приходится повторять фон? почему не наследуется? без повтора закрашивается коричневым */
+}
+
+/* у кнопок ведь border: none;, я не понимаю, как сочетать это с бордером здесь
+не справилась с box-shadow, но в таком состоянии подпрыгивает section
+неужели нужно всем кнопкам задать бордер (и меньший паддинг), чтобы здесь его менять? */
+.button-transparent:focus {
+  padding: 5px;
+  background-color: transparent;
+  border: 3px solid #83b3d3;
+  border-radius: 4px;
+}
+
+.button-transparent:active {
+  color: rgba(255, 255, 255, 0.3);
   background-color: transparent;
 }
 
@@ -185,6 +267,7 @@ img {
 }
 
 .hero {
+  position: relative;
   padding: 51px 70px 82px;
 
   color: #ffffff;
@@ -202,6 +285,18 @@ img {
   margin: 0 auto;
 }
 
+.hero::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 57px;
+  background-image: url(../images/hero-white.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .advantages-list {
   display: flex;
   flex-wrap: wrap;
@@ -217,10 +312,29 @@ img {
 }
 
 .advantages-title {
+  position: relative;
+
+  margin: 0 0 31px;
+  padding-bottom: 31px;
   font-size: 24px;
   line-height: 28px;
   text-transform: uppercase;
   text-align: center;
+}
+
+.advantages-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 60px;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.3);
+  transform: translateX(-50%);
+}
+
+.advantages-item-full .advantages-title::after {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .advantages-text {
@@ -249,23 +363,20 @@ img {
   color: #ffffff;
 }
 
-
-.advantages-image img {
-  vertical-align: middle;
-}
-
-/* чем верхний вариант хуже этого?
 .advantages-image img {
   display: block;
   width: 100%;
   height: 100%;
 }
-*/
 
 .advantages-content {
   width: 400px;
   min-height: 384px;
   padding: 113px 85px 30px;
+}
+
+.advantages-item-full .advantages-content {
+  padding-top: 103px;
 }
 
 .advantages-list-services .advantages-item {
@@ -295,6 +406,15 @@ img {
   background-image: url("../images/services-gift.svg");
 }
 
+.advantages-list-services .advantages-title::after {
+  display: none;
+}
+
+.advantages-list-services .advantages-title {
+  margin-bottom: 29px;
+  padding-bottom: 0;
+}
+
 .page-description {
   padding: 69px 70px 68px;
 
@@ -308,8 +428,13 @@ img {
 
 .search {
   padding: 96px 70px;
-
   text-align: center;
+}
+
+.search-button {
+  width: 376px;
+  font-size: 20px;
+  line-height: 36px;
 }
 
 .form-input {
@@ -339,7 +464,6 @@ img {
 .subscribe-home {
   background-image: url("../images/subscribe-background.jpg");
   background-repeat: no-repeat;
-  background-position: center;
   background-size: cover;
   background-color: #333333;
   color: #ffffff;
@@ -369,27 +493,6 @@ img {
   border-radius: 0 4px 4px 0;
 }
 
-/* почему не оставить на флексе? ведь тот же результат и код еще проще?
-.subscribe-form {
-  display: flex;
-  justify-content: center;
-}
-
-.subscribe-input {
-  width: 452px;
-  height: 52px;
-  font-weight: 400;
-  border-radius: 4px 0 0 4px;
-}
-
-.subscribe-button {
-  width: 232px;
-  font-size: 20px;
-  line-height: 36px;
-  border-radius: 0 4px 4px 0;
-}
-*/
-
 .filter {
   padding: 35px 70px 70px;
 
@@ -402,7 +505,7 @@ img {
 }
 
 .filter-page-title {
-  margin: 0;
+  margin: 0 0 7px;
   padding: 0;
 
   font-size: 60px;
@@ -412,18 +515,51 @@ img {
 .breadcrumbs {
   display: flex;
   flex-wrap: wrap;
-  padding: 8px 0 0;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.breadcrumbs-item {
+  position: relative;
+  margin-right: 28px;
 }
 
 .breadcrumbs-link {
   font-size: 16px;
   line-height: 21px;
+  color: #ffffff;
+  text-decoration: none;
 }
 
-/* не понимаю, почему не видно домик, и нужно ли его объединять со стрелочкой (а если нет, то как ее вставить) */
+.breadcrumbs-link:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.breadcrumbs-link:active {
+  color: rgba(255, 255, 255, 0.3);
+}
+
 .breadcrumbs-link-home {
+  display: block;
+  width: 13px;
+  height: 21px;
   background-image: url("../images/icon-breadcrumbs.svg");
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: 13px 15px;
+}
+
+.breadcrumbs-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -18px;
+  width: 7px;
+  height: 10px;
+  background-image: url("../images/breadcrumbs-arrow.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translateY(-50%);
 }
 
 .filter-form {
@@ -431,7 +567,6 @@ img {
   grid-template-columns: auto auto 1fr 190px;
   gap: 20px 70px;
   align-items: start;
-  padding: 40px 0 0;
 }
 
 .filter-group {
@@ -440,32 +575,106 @@ img {
   border: none;
 }
 
-.filter-group-check .filter-item {
-  padding-bottom: 16px;
+.filter-title {
+  margin-bottom: 32px;
+  padding: 0;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
 }
 
-.filter-group-check .filter-item:last-child {
-  padding-bottom: 0;
+.filter-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  justify-content: start;
 }
 
-.filter-group-radio .filter-item {
-  padding-bottom: 16px;
+.filter-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 17px;
 }
 
-.filter-group-radio .filter-item:last-child {
-  padding-bottom: 0;
+.filter-control-label:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.filter-control-label:active {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.filter-control-input[type="checkbox"]:checked {
+  background-image: url(../images/icon-check.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.filter-control-input[type="radio"] {
+  border-radius: 50%;
+}
+
+.filter-control-input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 10px;
+  height: 10px;
+
+  background-color: #3f5e72;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.filter-control-input {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  background-color: #ffffff;
+  border-radius: 4px;
+  appearance: none;
+}
+
+.filter-control-input:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* бордер внутри элемента, а не снаружи, почему? в кнопке наоборот! */
+.filter-control-input:focus {
+  border: 3px solid #83b3d3;
+}
+
+.filter-control-input:active {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .filter-group-range {
-  margin-left: auto; /* так прижать стоимость? без маргина приклеивается к апартаментам (с учетом гэпа 70) */
+  margin-left: auto;
 }
 
 .filter-range-change {
   display: grid;
-  grid-template-columns: 143px 143px;
+  grid-template-columns: repeat(2, 143px);
   gap: 2px;
+  margin-bottom: 35px;
 }
 
+.filter-range-item {
+  position: relative;
+}
+
+.form-input[type="number"] {
+  appearance: textfield;
+}
+
+.filter-range-input {
+  padding: 10px 55px 10px 18px;
+}
+
+/* здесь не понимаю, как сделать для active бордер черный внутри элемента, а для focus - синий СНАРУЖИ */
 .filter-range-input-min {
   border-radius: 4px 0 0 4px;
 }
@@ -474,16 +683,60 @@ img {
   border-radius: 0 4px 4px 0;
 }
 
-.filter-title {
-  margin-bottom: 32px;
-  font-size: 20px;
-  font-weight: 700;
+.filter-range-item label {
+  position: absolute;
+  right: 0;
+  padding: 11px 20px;
+  font-size: 18px;
   line-height: 24px;
+  color: rgba(0, 0, 0, 0.3);
 }
 
 .filter-control-label {
   font-size: 18px;
   line-height: 23px;
+}
+
+.filter-toggle-item {
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 5px;
+}
+
+.filter-toggle-item-min {
+  left: 0;
+}
+
+.filter-toggle-item-max {
+  right: 21%;
+}
+
+.filter-toggle {
+  position: relative;
+  height: 20px;
+}
+
+.filter-toggle::before {
+  left: 0;
+  width: 76%;
+  background-color: #ffffff;
+}
+
+.filter-toggle::before, .filter-toggle::after {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  height: 4px;
+}
+
+.filter-toggle::after {
+  right: 0;
+  width: 24%;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .filter-button {
@@ -533,6 +786,17 @@ img {
   appearance: none;
 }
 
+.sorting-select:hover,
+.sorting-select:focus {
+  border: 2px solid #68a2ca;
+  border-radius: 4px;
+}
+
+.sorting-select:active {
+  border: 2px solid #3f5e72;
+  border-radius: 4px;
+}
+
 .view {
   display: grid;
   grid-template-columns: repeat(3, auto);
@@ -551,6 +815,18 @@ img {
   border-radius: 4px;
 }
 
+.view-link:hover {
+  border-color: #000000;
+}
+
+.view-link:focus {
+  border-color: #68a2ca;
+}
+
+.view-link:active {
+  border-color: #000000;
+}
+
 .view-link-tile {
   background-image: url("../images/icon-tile.svg");
 }
@@ -565,18 +841,11 @@ img {
 
 .view-link-current {
   text-decoration: none;
-  border-color: #000000;
+  border: 2px solid #000000;
 }
 
 .product-card {
   padding: 0 70px 24px;
-}
-
-.product-card-title {
-  margin: 0;
-
-  font-size: 24px;
-  line-height: 28px;
 }
 
 .product-card-list {
@@ -610,28 +879,66 @@ img {
 }
 
 .card-link {
+  display: inline-block;
   grid-column: 1 / -1;
   color: #000000;
   text-decoration: none;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 28px;
 }
 
 .card-description + .card-description {
   text-align: right;
 }
 
+.card-favorites-current {
+  background-color: #7db54f;
+}
+
+.card-favorites-current:hover,
+.card-favorites-current:focus {
+  background-color: #6c9e42;
+}
+
+.card-favorites-current:active {
+  color:rgba(255, 255, 255, 0.3);
+  background-color: #7db54f;
+}
+
 .card-rating-text {
   padding: 8px;
-
   font-size: 16px;
   line-height: 20px;
-  font-family: "Pt Sans", "Arial", sans-serif;
   text-align: center;
   color: #333333;
   text-transform: uppercase;
 
   background-color: #f2f2f2;
-  border: none;
   border-radius: 4px;
+}
+
+.card-rating-star {
+  display: block;
+  height: 37px;
+  background-image: url(../images/stars.svg);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.card-rating-star-4 {
+  width: 90px;
+}
+
+.card-rating-star-3 {
+  width: 70px;
+}
+
+.card-rating-star-2 {
+  width: 49px;
 }
 
 .pagination {
@@ -647,26 +954,44 @@ img {
 .pagination-link {
   display: block;
   min-width: 60px;
-  height: 60px;
-  padding: 12px 18px;
+  min-height: 60px;
+  padding: 10px;
   font-weight: 700;
   font-size: 20px;
   line-height: 36px;
   text-align: center;
   color: #ffffff;
-  background-color: #82B3D3;
   text-decoration: none;
+
+  background-color: #82b3d3;
+  border: 1px solid #82b3d3;
   border-radius: 4px;
 }
 
-.pagination-current {
+.pagination-link:hover,
+.pagination-link:focus {
+  background-color: #68a2ca;
+}
+
+.pagination-link:active {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.pagination-link-current {
   color: #000000;
   background-color: #f2f2f2;
+  border-color: transparent;
+
+  pointer-events: none;
 }
 
 .pagination-link-more {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
   color: #000000;
-  background-color: #ffffff;
+  background-color: transparent;
+  border-color: transparent;
 }
 
 .footer {
@@ -675,17 +1000,27 @@ img {
   padding: 45px 70px 35px;
 }
 
-.footer-social {
-  display: flex;
-  flex-wrap: wrap;
+.social {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
 }
 
 .social-link {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  margin: 0;
-  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  width: 47px;
+  height: 40px;
+  color: #83b3d3;
+}
+
+.social-link:hover,
+.social-link:focus {
+  color: #68a2ca;
+}
+
+.social-link:active {
+  color: rgba(117, 97, 87, 0.3);
 }
 
 .contact-tel {
@@ -699,10 +1034,28 @@ img {
   text-decoration: none;
 }
 
+.contact-tel:hover,
+.contact-tel:focus {
+  color: #756157;
+}
+
+.contact-tel:active {
+  color: rgba(117, 97, 87, 0.3)
+}
+
 .footer-developer {
   display: block;
   width: 115px;
   height: 33px;
 
   color: #000000;
+}
+
+.footer-developer:hover,
+.footer-developer:focus {
+  color: #756157;
+}
+
+.footer-developer:active {
+  color: rgba(117, 97, 87, 0.3)
 }
