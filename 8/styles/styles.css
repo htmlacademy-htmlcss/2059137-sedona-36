@@ -39,8 +39,7 @@ body {
   position: relative;
 
   min-height: 100%;
-  width: 100%;
-  max-width: 1200px;
+  width: 1200px;
   margin: 0 auto;
 
   font-style: normal;
@@ -108,20 +107,20 @@ img {
   margin-bottom: -6px;
 }
 
+.navigation-item {
+  margin: 0 16px;
+}
+
 .navigation-list {
   display: flex;
   flex-wrap: wrap;
   margin-left: 6px;
 }
 
-.navigation-user-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: auto;
-}
-
 .navigation-link {
   display: inline-block;
+  position: relative;
+
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
@@ -129,9 +128,18 @@ img {
   color: #000000;
   text-decoration: none;
 
-  padding: 20px 16px;
+  padding: 19px 0 17px;
 }
 
+.navigation-link:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.navigation-link:active {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+/* почему-то на главной меньше видно полоску, как будто один пиксель съеден фоном hero. но почему? */
 .navigation-link-current::after {
   content: "";
   position: absolute;
@@ -140,6 +148,12 @@ img {
   left: 0;
   height: 2px;
   background-color: #756257;
+}
+
+.navigation-user-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
 }
 
 .navigation-user-link {
@@ -187,11 +201,54 @@ img {
   cursor: pointer;
 }
 
+.button:hover {
+  background-color: #615048;
+}
+
+.button:focus {
+  background-color: #615048;
+}
+
+.button:active {
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #756157;
+}
+
 .button-light {
   background-color: #82B3D3;
 }
 
+.button-light:hover,
+.button-light:focus {
+  background-color: #68a2ca;
+}
+
+.button-light:active {
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #82b3d3;
+}
+
 .button-transparent {
+  background-color: transparent;
+}
+
+.button-transparent:hover {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: transparent; /* почему приходится повторять фон? почему не наследуется? без повтора закрашивается коричневым */
+}
+
+/* у кнопок ведь border: none;, я не понимаю, как сочетать это с бордером здесь
+не справилась с box-shadow, но в таком состоянии подпрыгивает section
+неужели нужно всем кнопкам задать бордер (и меньший паддинг), чтобы здесь его менять? */
+.button-transparent:focus {
+  padding: 5px;
+  background-color: transparent;
+  border: 3px solid #83b3d3;
+  border-radius: 4px;
+}
+
+.button-transparent:active {
+  color: rgba(255, 255, 255, 0.3);
   background-color: transparent;
 }
 
@@ -210,6 +267,7 @@ img {
 }
 
 .hero {
+  position: relative;
   padding: 51px 70px 82px;
 
   color: #ffffff;
@@ -254,6 +312,10 @@ img {
 }
 
 .advantages-title {
+  position: relative;
+
+  margin: 0 0 31px;
+  padding-bottom: 31px;
   font-size: 24px;
   line-height: 28px;
   text-transform: uppercase;
@@ -313,6 +375,10 @@ img {
   padding: 113px 85px 30px;
 }
 
+.advantages-item-full .advantages-content {
+  padding-top: 103px;
+}
+
 .advantages-list-services .advantages-item {
   background-color: rgba(131, 179, 211, 0.12);
 }
@@ -340,6 +406,15 @@ img {
   background-image: url("../images/services-gift.svg");
 }
 
+.advantages-list-services .advantages-title::after {
+  display: none;
+}
+
+.advantages-list-services .advantages-title {
+  margin-bottom: 29px;
+  padding-bottom: 0;
+}
+
 .page-description {
   padding: 69px 70px 68px;
 
@@ -353,8 +428,13 @@ img {
 
 .search {
   padding: 96px 70px;
-
   text-align: center;
+}
+
+.search-button {
+  width: 376px;
+  font-size: 20px;
+  line-height: 36px;
 }
 
 .form-input {
@@ -447,6 +527,16 @@ img {
 .breadcrumbs-link {
   font-size: 16px;
   line-height: 21px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.breadcrumbs-link:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.breadcrumbs-link:active {
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .breadcrumbs-link-home {
@@ -506,6 +596,14 @@ img {
   gap: 17px;
 }
 
+.filter-control-label:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.filter-control-label:active {
+  color: rgba(255, 255, 255, 0.3);
+}
+
 .filter-control-input[type="checkbox"]:checked {
   background-image: url(../images/icon-check.svg);
   background-repeat: no-repeat;
@@ -516,10 +614,18 @@ img {
   border-radius: 50%;
 }
 
-.filter-control-input[type="radio"]:checked {
-  background-image: url(../images/icon-dot.svg);
-  background-repeat: no-repeat;
-  background-position: center;
+.filter-control-input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 10px;
+  height: 10px;
+
+  background-color: #3f5e72;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .filter-control-input {
@@ -532,28 +638,43 @@ img {
   appearance: none;
 }
 
+.filter-control-input:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* бордер внутри элемента, а не снаружи, почему? в кнопке наоборот! */
+.filter-control-input:focus {
+  border: 3px solid #83b3d3;
+}
+
+.filter-control-input:active {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
 .filter-group-range {
   margin-left: auto;
 }
 
 .filter-range-change {
   display: grid;
-  grid-template-columns: 143px 143px;
+  grid-template-columns: repeat(2, 143px);
   gap: 2px;
+  margin-bottom: 35px;
 }
 
 .filter-range-item {
   position: relative;
 }
 
-.form-input[type="number"], .form-input[type="text"] {
+.form-input[type="number"] {
   appearance: textfield;
 }
 
 .filter-range-input {
-  padding: 10px 45px 10px 18px;
+  padding: 10px 55px 10px 18px;
 }
 
+/* здесь не понимаю, как сделать для active бордер черный внутри элемента, а для focus - синий СНАРУЖИ */
 .filter-range-input-min {
   border-radius: 4px 0 0 4px;
 }
@@ -592,6 +713,11 @@ img {
 
 .filter-toggle-item-max {
   right: 21%;
+}
+
+.filter-toggle {
+  position: relative;
+  height: 20px;
 }
 
 .filter-toggle::before {
@@ -660,6 +786,17 @@ img {
   appearance: none;
 }
 
+.sorting-select:hover,
+.sorting-select:focus {
+  border: 2px solid #68a2ca;
+  border-radius: 4px;
+}
+
+.sorting-select:active {
+  border: 2px solid #3f5e72;
+  border-radius: 4px;
+}
+
 .view {
   display: grid;
   grid-template-columns: repeat(3, auto);
@@ -676,6 +813,18 @@ img {
   background-size: 16px 14px;
   border: 2px solid #e5e5e5;
   border-radius: 4px;
+}
+
+.view-link:hover {
+  border-color: #000000;
+}
+
+.view-link:focus {
+  border-color: #68a2ca;
+}
+
+.view-link:active {
+  border-color: #000000;
 }
 
 .view-link-tile {
@@ -730,6 +879,7 @@ img {
 }
 
 .card-link {
+  display: inline-block;
   grid-column: 1 / -1;
   color: #000000;
   text-decoration: none;
@@ -749,18 +899,25 @@ img {
   background-color: #7db54f;
 }
 
+.card-favorites-current:hover,
+.card-favorites-current:focus {
+  background-color: #6c9e42;
+}
+
+.card-favorites-current:active {
+  color:rgba(255, 255, 255, 0.3);
+  background-color: #7db54f;
+}
+
 .card-rating-text {
   padding: 8px;
-
   font-size: 16px;
   line-height: 20px;
-  font-family: "Pt Sans", "Arial", sans-serif;
   text-align: center;
   color: #333333;
   text-transform: uppercase;
 
   background-color: #f2f2f2;
-  border: none;
   border-radius: 4px;
 }
 
@@ -797,26 +954,44 @@ img {
 .pagination-link {
   display: block;
   min-width: 60px;
-  height: 60px;
-  padding: 12px 18px;
+  min-height: 60px;
+  padding: 10px;
   font-weight: 700;
   font-size: 20px;
   line-height: 36px;
   text-align: center;
   color: #ffffff;
-  background-color: #82B3D3;
   text-decoration: none;
+
+  background-color: #82b3d3;
+  border: 1px solid #82b3d3;
   border-radius: 4px;
 }
 
-.pagination-current {
+.pagination-link:hover,
+.pagination-link:focus {
+  background-color: #68a2ca;
+}
+
+.pagination-link:active {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.pagination-link-current {
   color: #000000;
   background-color: #f2f2f2;
+  border-color: transparent;
+
+  pointer-events: none;
 }
 
 .pagination-link-more {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
   color: #000000;
-  background-color: #ffffff;
+  background-color: transparent;
+  border-color: transparent;
 }
 
 .footer {
@@ -825,17 +1000,27 @@ img {
   padding: 45px 70px 35px;
 }
 
-.footer-social {
-  display: flex;
-  flex-wrap: wrap;
+.social {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
 }
 
 .social-link {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  margin: 0;
-  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  width: 47px;
+  height: 40px;
+  color: #83b3d3;
+}
+
+.social-link:hover,
+.social-link:focus {
+  color: #68a2ca;
+}
+
+.social-link:active {
+  color: rgba(117, 97, 87, 0.3);
 }
 
 .contact-tel {
@@ -849,10 +1034,28 @@ img {
   text-decoration: none;
 }
 
+.contact-tel:hover,
+.contact-tel:focus {
+  color: #756157;
+}
+
+.contact-tel:active {
+  color: rgba(117, 97, 87, 0.3)
+}
+
 .footer-developer {
   display: block;
   width: 115px;
   height: 33px;
 
   color: #000000;
+}
+
+.footer-developer:hover,
+.footer-developer:focus {
+  color: #756157;
+}
+
+.footer-developer:active {
+  color: rgba(117, 97, 87, 0.3)
 }
