@@ -1325,9 +1325,7 @@ img {
 
 .date-input {
   padding: 12px 56px 10px 18px;
-  /* РєР°СЂС‚РёРЅРєР° РєР°Р»РµРЅРґР°СЂРёРєР° */
-
-  background-image: url("../img/svg/icon-calendar.svg");
+  background-image: url("../images/icon-calendar.svg");
   background-repeat: no-repeat;
   background-position: right 20px center;
   background-size: 16px 15px;
@@ -1376,8 +1374,7 @@ img {
   height: 26px;
 
   background-color: #83b3d3;
-  /* РљР°СЂС‚РёРЅРєР° С‚РѕР»СЊРєРѕ Р±СѓРєРІС‹ i */
-  background-image: url("../img/svg/info.svg");
+  background-image: url("../images/info.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 2px 12px;
