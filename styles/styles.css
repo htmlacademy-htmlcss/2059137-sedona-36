@@ -142,11 +142,11 @@ img {
 .navigation-link:hover,
 .navigation-link:focus {
   outline: none;
-  color: rgba(0, 0, 0, 0.6);
+  color: #68a2ca;
 }
 
 .navigation-link:active {
-  color: rgba(0, 0, 0, 0.3);
+  opacity: 0.3;
 }
 
 .navigation-link-current::after {
@@ -173,12 +173,14 @@ img {
   justify-content: center;
   width: 40px;
   height: 40px;
+
+  color: #000000;
 }
 
 .navigation-user-link:hover,
 .navigation-user-link:focus {
   outline: none;
-  opacity: 0.6;
+  color: #68a2ca;
 }
 
 .navigation-user-link:active {
@@ -1028,6 +1030,10 @@ img {
   line-height: 28px;
 }
 
+.card-description {
+  color: #333333;
+}
+
 .card-description + .card-description {
   text-align: right;
 }
@@ -1184,7 +1190,7 @@ img {
 }
 
 .contact-tel:active {
-  color: rgba(117, 97, 87, 0.3)
+  color: rgba(117, 97, 87, 0.3);
 }
 
 .footer-developer {
@@ -1202,7 +1208,7 @@ img {
 }
 
 .footer-developer:active {
-  color: rgba(117, 97, 87, 0.3)
+  color: rgba(117, 97, 87, 0.3);
 }
 
 .modal-container {
@@ -1294,6 +1300,7 @@ img {
 
 .modal-title {
   padding-right: 40px;
+  text-align: left;
 }
 
 .form {
